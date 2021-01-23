@@ -45,15 +45,57 @@ object PrintHello {
 
     }
 
+  /**
+   * 占位符的测试函数
+   *
+   * @param a
+   * @param b
+   * @param c
+   * @return
+   */
+  def f(a: Int, b: Int, c: Int): Int = a + b + c
+
+  /**
+   * 数组生成函数
+   *
+   * @param a
+   * @return
+   */
+  def arrayGenerate(a: Int): Array[Int] = {
+    var arr: Array[Int] = new Array[Int](a)
+
+    if (a < 1) return arr
+
+    for (i <- 0 to a - 1) arr(i) = i
+
+    arr
+  }
+
+
+
+
+
+
+
   def main(args: Array[String]): Unit = {
     say()
-    val test:HelloTest = new HelloTest()
+    val test: HelloTest = new HelloTest(1)
     test.say()
 
     val a = forfunc()
     println(a)
 
     dparam()
+
+    val fo = f _ //占位符，代表f的所有参数
+    println(fo(1, 2, 3))
+
+    println("-----print array-------占位符替代-------begin-----------")
+    val arr = arrayGenerate(10)
+    arr.foreach(println _)
+    val list = List(arr).forall(x => x.length > 0)
+    println(list)
+    println("-----print array-------占位符替代------- end -----------")
 
   }
 }
