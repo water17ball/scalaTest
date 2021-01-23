@@ -1,5 +1,7 @@
 package com.kd
 
+import java.util.concurrent.ConcurrentSkipListMap
+
 object PrintHello {
   def say(): Unit ={
     println("ni hao!")
@@ -71,6 +73,22 @@ object PrintHello {
     arr
   }
 
+  /**
+   * ConcurrentSkipListMap试用
+   *
+   * @param position
+   * @return
+   */
+  def getFloorItem(position: Int): Int = {
+    val segments = new ConcurrentSkipListMap[Int, Int]();
+    segments.put(0, 100);
+    segments.put(100, 100);
+    segments.put(200, 200);
+    segments.put(400, 100);
+    segments.floorKey(position)
+
+  }
+
 
 
 
@@ -97,5 +115,10 @@ object PrintHello {
     println(list);
     println("-----print array-------占位符替代------- end -----------")
 
+
+    val positon = 125
+    println("floor[" + positon + "] = " + getFloorItem(positon))
   }
+
+
 }
