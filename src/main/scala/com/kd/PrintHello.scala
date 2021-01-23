@@ -94,7 +94,7 @@ object PrintHello {
     val arr = arrayGenerate(10)
     arr.foreach(println _)
     val list = List(arr).forall(x => x.length > 0)
-    println(list)
+    println(list);
     println("-----print array-------占位符替代------- end -----------")
 
   }
