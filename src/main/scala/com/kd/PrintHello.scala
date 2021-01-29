@@ -139,8 +139,6 @@ object PrintHello {
   }
 
 
-
-
   def main(args: Array[String]): Unit = {
     say()
     val test: HelloTest = new HelloTest(1)
@@ -173,6 +171,11 @@ object PrintHello {
     //match
     matchFun(2)
 
+    //函数式风格的代码
+
+    println("--------run MultiTable-------------")
+    val multiTable = MultiTable(9) //case class不需要使用new
+    println(multiTable.printMultiTable())
   }
 
 
